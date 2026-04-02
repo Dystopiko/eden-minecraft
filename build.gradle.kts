@@ -108,12 +108,6 @@ kotlin {
     }
 }
 
-afterEvaluate {
-    dependencies {
-        handleIncludes(includeImplementation)
-    }
-}
-
 // Configure the maven publication
 publishing {
     publications {

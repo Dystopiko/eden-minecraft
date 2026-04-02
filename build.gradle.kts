@@ -31,6 +31,10 @@ fun DependencyHandlerScope.includeAndImplementation(dep: Any) {
     include(dep)
 }
 
+val includeImplementation: Configuration by configurations.creating {
+    configurations.implementation.configure { extendsFrom(this@creating) }
+}
+
 dependencies {
     // To change the versions, see at `libs.versions.toml` file
     // Fabric
@@ -40,7 +44,7 @@ dependencies {
     // Fabric API + Kotlin + Kotlinx
     implementation(libs.fabric.api)
     implementation(libs.fabric.kotlin)
-    includeAndImplementation(libs.kotlinx.datetime)
+    includeImplementation(libs.kotlinx.datetime)
 
     // Luckperms
     implementation(libs.luckperms.api)
@@ -49,15 +53,15 @@ dependencies {
     includeAndImplementation(libs.fabric.permissions)
 
     // ktoml
-    includeAndImplementation(libs.ktoml.core)
-    includeAndImplementation(libs.ktoml.file)
+    includeImplementation(libs.ktoml.core)
+    includeImplementation(libs.ktoml.file)
 
     // okhttp
-    includeAndImplementation(libs.okhttp)
+    includeImplementation(libs.okhttp)
 
     // Adventure
-    includeAndImplementation(libs.adventure.api)
-    includeAndImplementation(libs.adventure.fabric)
+    includeImplementation(libs.adventure.api)
+    includeImplementation(libs.adventure.fabric)
 }
 
 tasks.processResources {
@@ -101,6 +105,12 @@ java {
 kotlin {
     compilerOptions {
         jvmTarget.set(JvmTarget.JVM_25)
+    }
+}
+
+afterEvaluate {
+    dependencies {
+        handleIncludes(includeImplementation)
     }
 }
 

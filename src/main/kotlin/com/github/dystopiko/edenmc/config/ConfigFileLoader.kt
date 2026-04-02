@@ -1,4 +1,4 @@
-package com.github.dystopiko.eden.config
+package com.github.dystopiko.edenmc.config
 
 import com.akuleshov7.ktoml.Toml
 import com.akuleshov7.ktoml.TomlIndentation

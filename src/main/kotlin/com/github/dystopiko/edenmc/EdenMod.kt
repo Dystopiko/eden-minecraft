@@ -1,6 +1,6 @@
 package com.github.dystopiko.edenmc
 
-import com.github.dystopiko.eden.config.ConfigFileLoader
+import com.github.dystopiko.edenmc.config.ConfigFileLoader
 import com.github.dystopiko.edenmc.commands.registerCommands
 import com.github.dystopiko.edenmc.gateway.GatewayClient
 import com.github.dystopiko.edenmc.listeners.registerCommandListeners

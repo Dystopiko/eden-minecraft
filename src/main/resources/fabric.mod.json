@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${mod_version}",
+  "name": "${mod_name}",
+  "description": "A game server client mod that interacts with the Eden Gateway API",
+  "authors": [
+    "memothelemo <dev@memothelemo.xyz>"
+  ],
+  "contact": {
+    "issues": "https://github.com/Dystopiko/eden-minecraft"
+  },
+  "license": "MIT",
+  "icon": "assets/eden-client/icon.png",
+  "environment": "server",
+  "entrypoints": {
+    "server": [
+      "com.github.dystopiko.edenmc.EdenMod::INSTANCE"
+    ]
+  },
+  "mixins": [
+    "edenmc.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${fabric_loader_version}",
+    "fabric-api": "*",
+    "fabric-language-kotlin": ">=${fabric_kotlin_version}",
+    "java": ">=25",
+    "luckperms": ">=5.5.0",
+    "minecraft": "${min_minecraft_version}"
+  }
+}

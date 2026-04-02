@@ -1,0 +1,50 @@
+[versions]
+minecraft = "26.1"
+
+# Fabric
+fabric-loader = "0.18.5"
+fabric-api = "0.145.1+26.1"
+fabric-permissions = "0.7.0"
+
+# Kotlin + Kotlinx
+kotlin = "2.3.20"
+fabric-kotlin = "1.13.10+kotlin.2.3.20"
+kotlinx-datetime = "0.7.1"
+
+# LuckPerms
+luckperms-api = "5.5"
+
+# ktoml
+ktoml = "0.7.1"
+
+# OkHttp
+okhttp = "5.3.0"
+
+# Adventure
+adventure-api = "4.26.1"
+adventure-fabric = "6.9.0-SNAPSHOT"
+
+[libraries]
+minecraft = { module = "net.minecraft:minecraft", version.ref = "minecraft" }
+
+fabric-api = { module = "net.fabricmc.fabric-api:fabric-api", version.ref = "fabric-api" }
+fabric-loader = { module = "net.fabricmc:fabric-loader", version.ref = "fabric-loader" }
+fabric-kotlin = { module = "net.fabricmc:fabric-language-kotlin", version.ref = "fabric-kotlin" }
+fabric-permissions = { module = "me.lucko:fabric-permissions-api", version.ref = "fabric-permissions" }
+
+kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx-datetime" }
+
+luckperms-api = { module = "net.luckperms:api", version.ref = "luckperms-api" }
+
+ktoml-core = { module = "com.akuleshov7:ktoml-core", version.ref = "ktoml" }
+ktoml-file = { module = "com.akuleshov7:ktoml-file", version.ref = "ktoml" }
+
+okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
+
+adventure-api = { module = "net.kyori:adventure-api", version.ref = "adventure-api" }
+adventure-fabric = { module = "net.kyori:adventure-platform-fabric", version.ref = "adventure-fabric" }
+
+[plugins]
+kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+loom = { id = "net.fabricmc.fabric-loom", version = "1.15-SNAPSHOT" }

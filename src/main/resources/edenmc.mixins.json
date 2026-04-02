@@ -1,0 +1,19 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.github.dystopiko.edenmc.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "CommandsMixin",
+    "ServerLoginPacketListenerMixin",
+    "ServerPlayerMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}

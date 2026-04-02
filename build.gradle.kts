@@ -53,15 +53,15 @@ dependencies {
     includeAndImplementation(libs.fabric.permissions)
 
     // ktoml
-    includeImplementation(libs.ktoml.core)
-    includeImplementation(libs.ktoml.file)
+    includeAndImplementation(libs.ktoml.core)
+    includeAndImplementation(libs.ktoml.file)
 
     // okhttp
-    includeImplementation(libs.okhttp)
+    includeAndImplementation(libs.okhttp)
 
     // Adventure
-    includeImplementation(libs.adventure.api)
-    includeImplementation(libs.adventure.fabric)
+    includeAndImplementation(libs.adventure.api)
+    includeAndImplementation(libs.adventure.fabric)
 }
 
 tasks.processResources {

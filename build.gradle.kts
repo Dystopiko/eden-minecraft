@@ -73,6 +73,9 @@ dependencies {
     // Adventure
     includeAndImplementation(libs.adventure.api)
     includeAndImplementation(libs.adventure.fabric)
+
+    // cron-utils
+    includeAndImplementation(libs.cronutils)
 }
 
 tasks.processResources {

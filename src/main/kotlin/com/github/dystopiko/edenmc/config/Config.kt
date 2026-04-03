@@ -1,11 +1,26 @@
 package com.github.dystopiko.edenmc.config
 
+import com.cronutils.model.Cron
+import com.cronutils.model.CronType
+import com.cronutils.model.definition.CronDefinitionBuilder
+import com.cronutils.parser.CronParser
+import kotlinx.datetime.TimeZone
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
 data class EdenModConfig(
     val gateway: GatewayConfig?,
+    val reminders: RemindersConfig = RemindersConfig(),
+    val timezone: TimeZone = TimeZone.UTC
+)
+
+@Serializable
+data class RemindersConfig(
+    @Serializable(with = CronSerializer::class)
+    val sleep: Cron = CronParser(CronDefinitionBuilder
+        .instanceDefinitionFor(CronType.UNIX))
+        .parse("*/15 0 * * *"),
 )
 
 @Serializable

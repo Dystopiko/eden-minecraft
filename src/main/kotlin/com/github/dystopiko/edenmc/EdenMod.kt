@@ -5,6 +5,7 @@ import com.github.dystopiko.edenmc.commands.registerCommands
 import com.github.dystopiko.edenmc.gateway.GatewayClient
 import com.github.dystopiko.edenmc.listeners.registerCommandListeners
 import com.github.dystopiko.edenmc.listeners.registerPlayerListeners
+import com.github.dystopiko.edenmc.utility.SleepReminder
 import com.github.dystopiko.edenmc.utility.setMinLevel
 import net.fabricmc.api.DedicatedServerModInitializer
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback
@@ -58,5 +59,6 @@ object EdenMod : DedicatedServerModInitializer {
         registerPlayerListeners()
 
         CommandRegistrationCallback.EVENT.register { dispatcher, _, _ -> registerCommands(dispatcher) }
+        SleepReminder(config).start()
     }
 }

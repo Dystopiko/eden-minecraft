@@ -1,3 +1,9 @@
+timezone = "UTC"
+
 #[gateway]
 #base_url = ""
 #token = ""
+
+[reminders]
+# You may set sleep reminder intervals using crontab.
+sleep = "*/15 0 * * *"

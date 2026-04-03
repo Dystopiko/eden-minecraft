@@ -27,7 +27,7 @@ repositories {
 }
 
 fun DependencyHandlerScope.includeAndImplementation(dep: Any) {
-    implementation(dep)
+    modImplementation(dep)
     include(dep)
 }
 
@@ -39,15 +39,16 @@ dependencies {
     // To change the versions, see at `libs.versions.toml` file
     // Fabric
     minecraft(libs.minecraft)
-    implementation(libs.fabric.loader)
+    mappings(loom.officialMojangMappings())
+    modImplementation(libs.fabric.loader)
 
     // Fabric API + Kotlin + Kotlinx
-    implementation(libs.fabric.api)
-    implementation(libs.fabric.kotlin)
+    modImplementation(libs.fabric.api)
+    modImplementation(libs.fabric.kotlin)
     includeImplementation(libs.kotlinx.datetime)
 
     // LuckPerms
-    implementation(libs.luckperms.api)
+    modImplementation(libs.luckperms.api)
 
     // Fabric Permissions
     includeAndImplementation(libs.fabric.permissions)

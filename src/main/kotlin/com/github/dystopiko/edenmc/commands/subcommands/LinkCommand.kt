@@ -13,6 +13,7 @@ import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.event.ClickEvent
 import net.kyori.adventure.text.format.NamedTextColor
 import net.minecraft.commands.Commands
+import org.geysermc.floodgate.api.FloodgateApi
 
 object LinkCommand: BuildableCommand {
     override fun build(): LiteralCommandNode = Commands.literal("link")
@@ -26,9 +27,10 @@ object LinkCommand: BuildableCommand {
         val uuid = player.uuid
         val ip = player.resolveIpAddress()
         val username = player.plainTextName
+        val isJava = !FloodgateApi.getInstance().isFloodgatePlayer(uuid)
 
         try {
-            val response = gateway.linkAccount(uuid, username, ip, java = true)
+            val response = gateway.linkAccount(uuid, username, ip, java = isJava)
             val component = EdenMod.componentPrefix
                 .appendSpace(Component.text("Please send this exact code:"))
                 .appendSpace(

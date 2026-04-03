@@ -11,6 +11,9 @@ kotlin = "2.3.20"
 fabric-kotlin = "1.13.10+kotlin.2.3.20"
 kotlinx-datetime = "0.7.1"
 
+# Floodgate API
+floodgate-api = "2.2.4-SNAPSHOT"
+
 # LuckPerms
 luckperms-api = "5.5"
 
@@ -34,6 +37,7 @@ fabric-permissions = { module = "me.lucko:fabric-permissions-api", version.ref =
 
 kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx-datetime" }
 
+floodgate-api = { module = "org.geysermc.floodgate:api", version.ref = "floodgate-api" }
 luckperms-api = { module = "net.luckperms:api", version.ref = "luckperms-api" }
 
 ktoml-core = { module = "com.akuleshov7:ktoml-core", version.ref = "ktoml" }

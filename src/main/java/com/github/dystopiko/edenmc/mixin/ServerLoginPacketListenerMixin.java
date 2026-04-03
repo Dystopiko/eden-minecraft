@@ -14,6 +14,7 @@ import com.mojang.authlib.GameProfile;
 import net.minecraft.network.Connection;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.network.ServerLoginPacketListenerImpl;
+import org.geysermc.floodgate.api.FloodgateApi;
 import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -130,8 +131,15 @@ public abstract class ServerLoginPacketListenerMixin {
         this.eden$sinceLastRequest = Instant.now();
 
         String ipAddress = resolveIpAddress(this.connection);
+        boolean isJava = !FloodgateApi.getInstance().isFloodgateId(profile.id());
 
-        EdenMod.logger.debug("Requesting session from gateway server (uuid={}, ip={})", profile.id(), ipAddress);
+        EdenMod.logger.debug(
+            "Requesting session from gateway server (uuid={}, ip={}, java={})",
+            profile.id(),
+            ipAddress,
+            isJava
+        );
+
         Thread thread = new Thread("Eden-SessionRequest-#" + eden$UNIQUE_THREAD_ID.incrementAndGet()) {
             @Override
             public void run() {
@@ -139,7 +147,7 @@ public abstract class ServerLoginPacketListenerMixin {
                     ServerLoginPacketListenerMixin.this.eden$grantedResponse = gateway.requestSession(
                         ServerLoginPacketListenerMixin.this.eden$playerUUID,
                         ipAddress,
-                        true
+                        isJava
                     );
                 } catch (Throwable t) {
                     ServerLoginPacketListenerMixin.this.eden$handleThrowable(t);

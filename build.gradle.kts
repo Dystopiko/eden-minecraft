@@ -24,6 +24,9 @@ repositories {
         name = "central-snapshots"
         url = uri("https://central.sonatype.com/repository/maven-snapshots/")
     }
+    maven {
+        url = uri("https://repo.opencollab.dev/main/")
+    }
 }
 
 fun DependencyHandlerScope.includeAndImplementation(dep: Any) {
@@ -46,6 +49,9 @@ dependencies {
     modImplementation(libs.fabric.api)
     modImplementation(libs.fabric.kotlin)
     includeImplementation(libs.kotlinx.datetime)
+
+    // Floodgate
+    modImplementation(libs.floodgate.api)
 
     // LuckPerms
     modImplementation(libs.luckperms.api)

@@ -14,5 +14,5 @@ data class EncodedMember (
     val name: String,
 
     /** Member's current rank in primary guild */
-    val rank: String?
+    val rank: String? = null
 )

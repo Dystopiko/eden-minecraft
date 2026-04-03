@@ -4,6 +4,7 @@ import com.github.dystopiko.edenmc.config.GatewayConfig
 import com.github.dystopiko.edenmc.exceptions.GatewayException
 import com.github.dystopiko.edenmc.gateway.alerts.AlertAdminCommandUse
 import com.github.dystopiko.edenmc.gateway.alerts.CommandExecutor
+import com.github.dystopiko.edenmc.gateway.members.FullMember
 import com.github.dystopiko.edenmc.gateway.members.LinkChallenge
 import com.github.dystopiko.edenmc.gateway.members.LinkMcAccount
 import com.github.dystopiko.edenmc.gateway.sessions.RequestSession
@@ -36,6 +37,19 @@ class GatewayClient(config: GatewayConfig) {
         .followRedirects(true)
         .authenticator(TokenAuthenticator(config.token))
         .build()
+
+    /**
+     * Gets the detailed information of a member from a member's Discord ID.
+     * (`GET /admin/members/{id}`)
+     *
+     * @throws GatewayException if the gateway returns an error response.
+     * @throws java.io.IOException if the gateway is unreachable.
+     */
+    @Throws(GatewayException::class, IOException::class)
+    fun fetchFullMember(id: String): FullMember {
+        assert(id.toCharArray().all { it.isDigit() })
+        return model(Request.Builder().url("$baseUrl/admin/members/$id").get().build())
+    }
 
     /**
      * Logs a potential admin command use and sends over to the appropriate

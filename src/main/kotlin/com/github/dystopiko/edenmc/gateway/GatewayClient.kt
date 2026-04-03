@@ -3,6 +3,7 @@ package com.github.dystopiko.edenmc.gateway
 import com.github.dystopiko.edenmc.config.GatewayConfig
 import com.github.dystopiko.edenmc.exceptions.GatewayException
 import com.github.dystopiko.edenmc.gateway.admin.Invitees
+import com.github.dystopiko.edenmc.gateway.admin.PatchSettings
 import com.github.dystopiko.edenmc.gateway.alerts.AlertAdminCommandUse
 import com.github.dystopiko.edenmc.gateway.alerts.CommandExecutor
 import com.github.dystopiko.edenmc.gateway.members.FullMember
@@ -25,7 +26,6 @@ import okhttp3.Route
 import java.io.IOException
 import java.time.Duration
 import java.util.UUID
-import java.util.concurrent.CompletableFuture
 import kotlin.jvm.Throws
 
 /**
@@ -38,6 +38,23 @@ class GatewayClient(config: GatewayConfig) {
         .followRedirects(true)
         .authenticator(TokenAuthenticator(config.token))
         .build()
+
+    /**
+     * Changes guild settings with the following parameters provided in `PatchSettings`
+     * (`PATCH /admin/settings`)
+     *
+     * @throws GatewayException if the gateway returns an error response.
+     * @throws java.io.IOException if the gateway is unreachable.
+     */
+    @Throws(GatewayException::class, IOException::class)
+    fun patchSettings(delta: PatchSettings) {
+        val request = Request.Builder()
+            .url("$baseUrl/admin/settings")
+            .patch(json.encodeToString(delta).toRequestBody(JSON_MEDIA_TYPE))
+            .build()
+
+        perform(request)
+    }
 
     /**
      * Gets all members invited by a specified member from their Discord ID

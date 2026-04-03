@@ -1,6 +1,7 @@
 package com.github.dystopiko.edenmc.commands.subcommands
 
 import com.github.dystopiko.edenmc.commands.BuildableCommand
+import com.github.dystopiko.edenmc.commands.subcommands.admin.AllowGuests
 import com.github.dystopiko.edenmc.commands.subcommands.admin.FetchMemberCommand
 import com.github.dystopiko.edenmc.commands.subcommands.admin.GetInviteesCommand
 import com.github.dystopiko.edenmc.sessions.MemberSession
@@ -15,6 +16,7 @@ object AdminCommand: BuildableCommand {
             .requires(::requiresDystopiaAdmin)
             .build()
 
+        root.addChild(AllowGuests.build())
         root.addChild(FetchMemberCommand.build())
         root.addChild(GetInviteesCommand.build())
         return root

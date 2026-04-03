@@ -70,7 +70,8 @@ private fun setupPlayerPerks(player: ServerPlayer, perks: List<String>) {
         .thenComposeAsync { user ->
             user.data().clear()
             for (perk in perks) {
-                user.data().add(Node.builder(perk).build())
+                val node = Node.builder(perk).value(true).build()
+                user.data().add(node)
             }
             return@thenComposeAsync luckperms.userManager.saveUser(user)
         }

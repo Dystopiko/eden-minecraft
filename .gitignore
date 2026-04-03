@@ -4,6 +4,9 @@ build/
 out/
 classes/
 
+# Kotlin
+/.kotlin
+
 # Eclipse
 *.launch
 

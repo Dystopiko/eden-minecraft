@@ -46,7 +46,7 @@ dependencies {
     implementation(libs.fabric.kotlin)
     includeImplementation(libs.kotlinx.datetime)
 
-    // Luckperms
+    // LuckPerms
     implementation(libs.luckperms.api)
 
     // Fabric Permissions

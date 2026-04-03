@@ -2,6 +2,7 @@ package com.github.dystopiko.edenmc.gateway
 
 import com.github.dystopiko.edenmc.config.GatewayConfig
 import com.github.dystopiko.edenmc.exceptions.GatewayException
+import com.github.dystopiko.edenmc.gateway.admin.Invitees
 import com.github.dystopiko.edenmc.gateway.alerts.AlertAdminCommandUse
 import com.github.dystopiko.edenmc.gateway.alerts.CommandExecutor
 import com.github.dystopiko.edenmc.gateway.members.FullMember
@@ -37,6 +38,19 @@ class GatewayClient(config: GatewayConfig) {
         .followRedirects(true)
         .authenticator(TokenAuthenticator(config.token))
         .build()
+
+    /**
+     * Gets all members invited by a specified member from their Discord ID
+     * (`GET /admin/members/{id}/invitees`)
+     *
+     * @throws GatewayException if the gateway returns an error response.
+     * @throws java.io.IOException if the gateway is unreachable.
+     */
+    @Throws(GatewayException::class, IOException::class)
+    fun getInvitees(id: String): Invitees {
+        assert(id.toCharArray().all { it.isDigit() })
+        return model(Request.Builder().url("$baseUrl/admin/members/$id/invitees").get().build())
+    }
 
     /**
      * Gets the detailed information of a member from a member's Discord ID.

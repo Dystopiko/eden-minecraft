@@ -6,16 +6,19 @@ import com.akuleshov7.ktoml.TomlInputConfig
 import com.akuleshov7.ktoml.TomlOutputConfig
 import com.akuleshov7.ktoml.exceptions.TomlDecodingException
 import com.akuleshov7.ktoml.file.TomlFileReader
+import com.akuleshov7.ktoml.source.TomlSourceReader
+import com.akuleshov7.ktoml.source.decodeFromStream
+import com.akuleshov7.ktoml.source.partiallyDecodeFromStream
 import com.github.dystopiko.edenmc.EdenMod.ID
 import com.github.dystopiko.edenmc.EdenMod.logger
 import com.github.dystopiko.edenmc.exceptions.InternalException
-import com.github.dystopiko.edenmc.config.EdenModConfig
 import kotlinx.serialization.serializer
 import net.fabricmc.loader.api.FabricLoader
 import java.io.IOException
 import java.nio.file.Files
 import java.nio.file.Path
 import kotlin.io.path.exists
+import kotlin.io.path.inputStream
 
 class ConfigFileLoader(val file: Path) {
     fun exists(): Boolean = file.exists()
@@ -28,9 +31,9 @@ class ConfigFileLoader(val file: Path) {
         }
 
         return try {
-            TomlFileReader.decodeFromFile(
+            TomlSourceReader.decodeFromStream(
                 toml.serializersModule.serializer(),
-                file.toString()
+                file.inputStream()
             )
         } catch (e: TomlDecodingException) {
             error(

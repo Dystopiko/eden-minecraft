@@ -56,6 +56,10 @@ dependencies {
     includeAndImplementation(libs.ktoml.core)
     includeAndImplementation(libs.ktoml.file)
 
+    // required for ktoml
+    includeAndImplementation("com.squareup.okio:okio:3.16.2")
+    includeAndImplementation(libs.ktoml.source)
+
     // okhttp
     includeAndImplementation(libs.okhttp)
 
@@ -119,45 +123,3 @@ publishing {
     // Select the repositories you want to publish to
     repositories {}
 }
-
-// Copied from: https://github.com/QuiltServerTools/Ledger/blob/bf8192bad56c58e4914d3806958276e13f3b55cd/build.gradle.kts
-afterEvaluate {
-    dependencies {
-        handleIncludes(includeImplementation)
-    }
-}
-
-/* Thanks to https://github.com/jakobkmar for original script */
-fun DependencyHandlerScope.includeTransitive(
-    dependencies: Set<ResolvedDependency>,
-    minecraftLibs: Set<ResolvedDependency>,
-    kotlinDependency: ResolvedDependency,
-    checkedDependencies: MutableSet<ResolvedDependency> = HashSet()
-) {
-    dependencies.forEach {
-        if (checkedDependencies.contains(it) || it.moduleGroup == "org.jetbrains.kotlin" || it.moduleGroup == "org.jetbrains.kotlinx") return@forEach
-
-        if (kotlinDependency.children.any { dep -> dep.name == it.name }) {
-            println("Skipping -> ${it.name} (already in fabric-language-kotlin)")
-        } else if (minecraftLibs.any { dep -> dep.moduleGroup == it.moduleGroup && dep.moduleName == it.moduleName }) {
-            println("Skipping -> ${it.name} (already in minecraft)")
-        } else {
-            include(it.name)
-            println("Including -> ${it.name}")
-        }
-        checkedDependencies += it
-
-        includeTransitive(it.children, minecraftLibs, kotlinDependency, checkedDependencies)
-    }
-}
-
-fun DependencyHandlerScope.handleIncludes(configuration: Configuration) {
-    includeTransitive(
-        configuration.resolvedConfiguration.firstLevelModuleDependencies,
-        configurations.minecraftLibraries.get().resolvedConfiguration.firstLevelModuleDependencies,
-        configurations.runtimeClasspath.get().resolvedConfiguration.firstLevelModuleDependencies
-            .first { it.moduleGroup == "net.fabricmc" && it.moduleName == "fabric-language-kotlin" },
-    )
-}
-
-// end of copy

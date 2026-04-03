@@ -38,6 +38,7 @@ luckperms-api = { module = "net.luckperms:api", version.ref = "luckperms-api" }
 
 ktoml-core = { module = "com.akuleshov7:ktoml-core", version.ref = "ktoml" }
 ktoml-file = { module = "com.akuleshov7:ktoml-file", version.ref = "ktoml" }
+ktoml-source = { module = "com.akuleshov7:ktoml-source", version.ref = "ktoml" }
 
 okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
 

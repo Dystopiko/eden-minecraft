@@ -34,7 +34,7 @@ object EdenMod : DedicatedServerModInitializer {
     val debugMode: Boolean = FabricLoader.getInstance().isDevelopmentEnvironment
         || System.getProperty("eden.debug") != null
 
-    val executor = Executors.newCachedThreadPool()
+    val executor = Executors.newFixedThreadPool(8)
 
     @JvmField @Nullable
     var gateway: GatewayClient? = null

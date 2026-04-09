@@ -9,6 +9,9 @@ import java.util.concurrent.ConcurrentHashMap
 object SessionManager {
     private val sessions = ConcurrentHashMap<UUID, Session>()
 
+    fun isSessionPresentForPlayer(id: UUID): Boolean
+        = this.sessions.contains(id)
+
     fun register(id: UUID, session: Session) {
         if (this.sessions.putIfAbsent(id, session) != null) {
             throw InternalException("Attempt to register session twice!")

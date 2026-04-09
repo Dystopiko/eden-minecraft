@@ -2,6 +2,7 @@ package com.github.dystopiko.edenmc.mixin;
 
 import com.github.dystopiko.edenmc.EdenMod;
 import com.github.dystopiko.edenmc.exceptions.GatewayException;
+import com.github.dystopiko.edenmc.exceptions.InternalException;
 import com.github.dystopiko.edenmc.gateway.GatewayClient;
 import com.github.dystopiko.edenmc.gateway.members.EncodedMember;
 import com.github.dystopiko.edenmc.gateway.sessions.SessionGranted;
@@ -56,17 +57,31 @@ public abstract class ServerLoginPacketListenerMixin {
     public abstract void disconnect(Component component);
 
     @Unique
+    private void eden$logSessionGranted(
+        @NotNull Instant sinceLastRequest,
+        @NotNull Session anySession
+    ) {
+        Duration elapsed = Duration.between(sinceLastRequest, Instant.now());
+        if (anySession instanceof MemberSession session) {
+            EncodedMember member = session.getMember();
+            EdenMod.logger.debug("Session granted for {} (rank={}, elapsed={}ms)",
+                member.getName(),
+                member.getRank(),
+                elapsed.toMillis()
+            );
+        } else {
+            EdenMod.logger.debug("Session granted as guest (elapsed={}ms)", elapsed.toMillis());
+        }
+    }
+
+    @Unique
     private void eden$onSessionGranted(
         @NotNull UUID uuid,
         @NotNull Instant sinceLastRequest,
         @NotNull SessionGranted response
     ) {
-        Duration elapsed = Duration.between(sinceLastRequest, Instant.now());
         Session session;
-        if (response.getMember() instanceof EncodedMember member) {
-            EdenMod.logger.debug("Session granted for {} (rank={}, elapsed={}ms)",
-                member.getName(), member.getRank(), elapsed.toMillis());
-
+        if (response.getMember() instanceof EncodedMember) {
             session = new MemberSession(
                 uuid,
                 response.getLastLoginAt(),
@@ -74,10 +89,16 @@ public abstract class ServerLoginPacketListenerMixin {
                 response.getPerks()
             );
         } else {
-            EdenMod.logger.debug("Session granted as guest (elapsed={}ms)", elapsed.toMillis());
             session = new GuestSession(uuid);
         }
-        SessionManager.INSTANCE.register(uuid, session);
+
+        this.eden$logSessionGranted(sinceLastRequest, session);
+
+        try {
+            SessionManager.INSTANCE.register(uuid, session);
+        } catch (InternalException $) {
+            EdenMod.logger.warn("{} maybe left the server too quickly whilst requesting session from gateway", uuid);
+        }
     }
 
     @Unique
@@ -118,6 +139,14 @@ public abstract class ServerLoginPacketListenerMixin {
         }
     }
 
+    @Unique
+    private void eden$handleExistingSession(Session session) {
+        EdenMod.logger.warn("{} has already granted a new session (maybe got disconnected?)", session.getUuid());
+        this.eden$logSessionGranted(this.eden$sinceLastRequest, session);
+        this.eden$sinceLastRequest = null;
+        this.eden$state = RequestSessionState.GRANTED;
+    }
+
     @Inject(method = "finishLoginAndWaitForClient", at = @At("HEAD"), cancellable = true)
     private void eden$requestSession(GameProfile profile, CallbackInfo ci) {
         GatewayClient gateway = EdenMod.gateway;
@@ -129,6 +158,13 @@ public abstract class ServerLoginPacketListenerMixin {
         this.eden$playerUUID = profile.id();
         this.eden$state = RequestSessionState.REQUESTING;
         this.eden$sinceLastRequest = Instant.now();
+
+        // Verify whether the player has already received a new session but hasn’t acknowledged it
+        // yet, possibly because they left the server after Eden gave a new session.
+        if (SessionManager.INSTANCE.isSessionPresentForPlayer(profile.id())) {
+            this.eden$handleExistingSession(SessionManager.INSTANCE.getSession(profile.id()));
+            return;
+        }
 
         String ipAddress = resolveIpAddress(this.connection);
         boolean isJava = !FloodgateApi.getInstance().isFloodgateId(profile.id());

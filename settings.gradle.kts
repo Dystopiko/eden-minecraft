@@ -15,3 +15,9 @@ dependencyResolutionManagement {
         }
     }
 }
+
+rootProject.name = "EdenMC"
+include (
+    "api",
+    "fabric"
+)

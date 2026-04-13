@@ -1,6 +1,6 @@
-package com.github.dystopiko.edenmc.commands
+package xyz.memothelemo.edenmc.commands
 
-import com.github.dystopiko.edenmc.utility.LiteralCommandNode
+import xyz.memothelemo.edenmc.utility.LiteralCommandNode
 
 interface BuildableCommand {
     fun build(): LiteralCommandNode

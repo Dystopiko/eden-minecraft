@@ -1,12 +1,12 @@
-package com.github.dystopiko.edenmc.commands.subcommands
+package xyz.memothelemo.edenmc.commands.subcommands
 
-import com.github.dystopiko.edenmc.commands.BuildableCommand
-import com.github.dystopiko.edenmc.commands.subcommands.admin.AllowGuests
-import com.github.dystopiko.edenmc.commands.subcommands.admin.FetchMemberCommand
-import com.github.dystopiko.edenmc.commands.subcommands.admin.GetInviteesCommand
-import com.github.dystopiko.edenmc.sessions.MemberSession
-import com.github.dystopiko.edenmc.sessions.getSession
-import com.github.dystopiko.edenmc.utility.LiteralCommandNode
+import xyz.memothelemo.edenmc.commands.BuildableCommand
+import xyz.memothelemo.edenmc.commands.subcommands.admin.AllowGuests
+import xyz.memothelemo.edenmc.commands.subcommands.admin.FetchMemberCommand
+import xyz.memothelemo.edenmc.commands.subcommands.admin.GetInviteesCommand
+import xyz.memothelemo.edenmc.sessions.MemberSession
+import xyz.memothelemo.edenmc.sessions.getSession
+import xyz.memothelemo.edenmc.utility.LiteralCommandNode
 import net.minecraft.commands.CommandSourceStack
 import net.minecraft.commands.Commands
 

@@ -1,12 +1,12 @@
-package com.github.dystopiko.edenmc.api.impl;
+package xyz.memothelemo.edenmc.api.impl;
 
-import com.github.dystopiko.edenmc.api.Eden;
-import com.github.dystopiko.edenmc.api.impl.model.GuestImpl;
-import com.github.dystopiko.edenmc.api.impl.model.MemberImpl;
-import com.github.dystopiko.edenmc.api.model.User;
-import com.github.dystopiko.edenmc.sessions.MemberSession;
-import com.github.dystopiko.edenmc.sessions.Session;
-import com.github.dystopiko.edenmc.sessions.SessionManager;
+import xyz.memothelemo.edenmc.api.Eden;
+import xyz.memothelemo.edenmc.api.impl.model.GuestImpl;
+import xyz.memothelemo.edenmc.api.impl.model.MemberImpl;
+import xyz.memothelemo.edenmc.api.model.User;
+import xyz.memothelemo.edenmc.sessions.MemberSession;
+import xyz.memothelemo.edenmc.sessions.Session;
+import xyz.memothelemo.edenmc.sessions.SessionManager;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import org.checkerframework.checker.nullness.qual.NonNull;

@@ -1,6 +1,6 @@
-package com.github.dystopiko.edenmc.api.model;
+package xyz.memothelemo.edenmc.api.model;
 
-import com.github.dystopiko.edenmc.api.model.organization.MemberRank;
+import xyz.memothelemo.edenmc.api.model.organization.MemberRank;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
 @SuppressWarnings("unused")

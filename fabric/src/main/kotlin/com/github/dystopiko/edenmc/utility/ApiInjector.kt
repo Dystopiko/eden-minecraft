@@ -1,8 +1,8 @@
-package com.github.dystopiko.edenmc.utility
+package xyz.memothelemo.edenmc.utility
 
-import com.github.dystopiko.edenmc.EdenMod
-import com.github.dystopiko.edenmc.api.Eden
-import com.github.dystopiko.edenmc.api.EdenProvider
+import xyz.memothelemo.edenmc.EdenMod
+import xyz.memothelemo.edenmc.api.Eden
+import xyz.memothelemo.edenmc.api.EdenProvider
 import java.lang.reflect.Method
 
 fun injectApiImpl(impl: Eden) {

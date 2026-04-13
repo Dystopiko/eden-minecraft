@@ -1,16 +1,16 @@
-package com.github.dystopiko.edenmc.mixin;
+package xyz.memothelemo.edenmc.mixin;
 
-import com.github.dystopiko.edenmc.EdenMod;
-import com.github.dystopiko.edenmc.exceptions.GatewayException;
-import com.github.dystopiko.edenmc.exceptions.InternalException;
-import com.github.dystopiko.edenmc.gateway.GatewayClient;
-import com.github.dystopiko.edenmc.gateway.members.EncodedMember;
-import com.github.dystopiko.edenmc.gateway.sessions.SessionGranted;
-import com.github.dystopiko.edenmc.gateway.state.RequestSessionState;
-import com.github.dystopiko.edenmc.sessions.GuestSession;
-import com.github.dystopiko.edenmc.sessions.MemberSession;
-import com.github.dystopiko.edenmc.sessions.Session;
-import com.github.dystopiko.edenmc.sessions.SessionManager;
+import xyz.memothelemo.edenmc.EdenMod;
+import xyz.memothelemo.edenmc.exceptions.GatewayException;
+import xyz.memothelemo.edenmc.exceptions.InternalException;
+import xyz.memothelemo.edenmc.gateway.GatewayClient;
+import xyz.memothelemo.edenmc.gateway.members.EncodedMember;
+import xyz.memothelemo.edenmc.gateway.sessions.SessionGranted;
+import xyz.memothelemo.edenmc.gateway.state.RequestSessionState;
+import xyz.memothelemo.edenmc.sessions.GuestSession;
+import xyz.memothelemo.edenmc.sessions.MemberSession;
+import xyz.memothelemo.edenmc.sessions.Session;
+import xyz.memothelemo.edenmc.sessions.SessionManager;
 import com.mojang.authlib.GameProfile;
 import net.minecraft.network.Connection;
 import net.minecraft.network.chat.Component;
@@ -31,7 +31,7 @@ import java.time.Instant;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import static com.github.dystopiko.edenmc.utility.ExtensionsKt.resolveIpAddress;
+import static xyz.memothelemo.edenmc.utility.ExtensionsKt.resolveIpAddress;
 
 @Mixin(ServerLoginPacketListenerImpl.class)
 public abstract class ServerLoginPacketListenerMixin {

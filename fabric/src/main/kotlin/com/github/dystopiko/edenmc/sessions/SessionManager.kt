@@ -1,6 +1,6 @@
-package com.github.dystopiko.edenmc.sessions
+package xyz.memothelemo.edenmc.sessions
 
-import com.github.dystopiko.edenmc.exceptions.InternalException
+import xyz.memothelemo.edenmc.exceptions.InternalException
 import net.minecraft.server.level.ServerPlayer
 import net.minecraft.world.entity.player.Player
 import java.util.UUID

@@ -1,4 +1,4 @@
-package com.github.dystopiko.edenmc.api.model.organization;
+package xyz.memothelemo.edenmc.api.model.organization;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
 

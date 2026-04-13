@@ -1,8 +1,8 @@
-package com.github.dystopiko.edenmc.services
+package xyz.memothelemo.edenmc.services
 
 import com.cronutils.model.Cron
 import com.cronutils.model.time.ExecutionTime
-import com.github.dystopiko.edenmc.config.EdenModConfig
+import xyz.memothelemo.edenmc.config.EdenModConfig
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents
 import net.minecraft.server.MinecraftServer
 import java.time.ZoneId

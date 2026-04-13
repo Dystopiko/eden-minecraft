@@ -1,10 +1,10 @@
-package com.github.dystopiko.edenmc.services
+package xyz.memothelemo.edenmc.services
 
 import com.cronutils.model.CronType
 import com.cronutils.model.definition.CronDefinitionBuilder
 import com.cronutils.parser.CronParser
-import com.github.dystopiko.edenmc.EdenMod
-import com.github.dystopiko.edenmc.config.EdenModConfig
+import xyz.memothelemo.edenmc.EdenMod
+import xyz.memothelemo.edenmc.config.EdenModConfig
 import net.kyori.adventure.platform.modcommon.MinecraftServerAudiences
 import net.kyori.adventure.text.Component
 import net.minecraft.server.MinecraftServer

@@ -1,6 +1,6 @@
-package com.github.dystopiko.edenmc.mixin;
+package xyz.memothelemo.edenmc.mixin;
 
-import com.github.dystopiko.edenmc.callbacks.CommandExecutionCallback;
+import xyz.memothelemo.edenmc.callbacks.CommandExecutionCallback;
 import com.llamalad7.mixinextras.sugar.Local;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.context.ContextChain;

@@ -1,4 +1,4 @@
-package com.github.dystopiko.edenmc.utility
+package xyz.memothelemo.edenmc.utility
 
 import com.mojang.brigadier.context.CommandContext
 import com.mojang.brigadier.tree.CommandNode

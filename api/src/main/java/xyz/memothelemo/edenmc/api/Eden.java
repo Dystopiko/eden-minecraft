@@ -1,6 +1,6 @@
-package com.github.dystopiko.edenmc.api;
+package xyz.memothelemo.edenmc.api;
 
-import com.github.dystopiko.edenmc.api.model.User;
+import xyz.memothelemo.edenmc.api.model.User;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import org.checkerframework.checker.nullness.qual.NonNull;

@@ -1,4 +1,4 @@
-package com.github.dystopiko.edenmc.api;
+package xyz.memothelemo.edenmc.api;
 
 import org.jetbrains.annotations.NotNull;
 

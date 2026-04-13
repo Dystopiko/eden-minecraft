@@ -1,4 +1,4 @@
-package com.github.dystopiko.edenmc.gateway.admin
+package xyz.memothelemo.edenmc.gateway.admin
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

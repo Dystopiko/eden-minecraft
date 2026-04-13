@@ -1,6 +1,6 @@
-package com.github.dystopiko.edenmc.utility
+package xyz.memothelemo.edenmc.utility
 
-import com.github.dystopiko.edenmc.exceptions.InternalException
+import xyz.memothelemo.edenmc.exceptions.InternalException
 import com.google.common.net.InetAddresses
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.TextComponent

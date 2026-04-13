@@ -1,9 +1,9 @@
-package com.github.dystopiko.edenmc.commands
+package xyz.memothelemo.edenmc.commands
 
-import com.github.dystopiko.edenmc.EdenMod
-import com.github.dystopiko.edenmc.gateway.GatewayClient
-import com.github.dystopiko.edenmc.sessions.MemberSession
-import com.github.dystopiko.edenmc.sessions.getSession
+import xyz.memothelemo.edenmc.EdenMod
+import xyz.memothelemo.edenmc.gateway.GatewayClient
+import xyz.memothelemo.edenmc.sessions.MemberSession
+import xyz.memothelemo.edenmc.sessions.getSession
 import com.mojang.brigadier.exceptions.SimpleCommandExceptionType
 import net.minecraft.server.level.ServerPlayer
 

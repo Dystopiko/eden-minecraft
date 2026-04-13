@@ -1,6 +1,6 @@
-package com.github.dystopiko.edenmc.services
+package xyz.memothelemo.edenmc.services
 
-import com.github.dystopiko.edenmc.config.EdenModConfig
+import xyz.memothelemo.edenmc.config.EdenModConfig
 import net.minecraft.ChatFormatting
 import net.minecraft.network.chat.Component
 import net.minecraft.server.MinecraftServer

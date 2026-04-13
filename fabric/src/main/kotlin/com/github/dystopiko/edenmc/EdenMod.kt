@@ -1,15 +1,15 @@
-package com.github.dystopiko.edenmc
+package xyz.memothelemo.edenmc
 
-import com.github.dystopiko.edenmc.api.impl.EdenImpl
-import com.github.dystopiko.edenmc.config.ConfigFileLoader
-import com.github.dystopiko.edenmc.commands.registerCommands
-import com.github.dystopiko.edenmc.gateway.GatewayClient
-import com.github.dystopiko.edenmc.listeners.registerCommandListeners
-import com.github.dystopiko.edenmc.listeners.registerPlayerListeners
-import com.github.dystopiko.edenmc.services.ExpandWorldBorder
-import com.github.dystopiko.edenmc.services.SleepReminder
-import com.github.dystopiko.edenmc.utility.injectApiImpl
-import com.github.dystopiko.edenmc.utility.setMinLevel
+import xyz.memothelemo.edenmc.api.impl.EdenImpl
+import xyz.memothelemo.edenmc.config.ConfigFileLoader
+import xyz.memothelemo.edenmc.commands.registerCommands
+import xyz.memothelemo.edenmc.gateway.GatewayClient
+import xyz.memothelemo.edenmc.listeners.registerCommandListeners
+import xyz.memothelemo.edenmc.listeners.registerPlayerListeners
+import xyz.memothelemo.edenmc.services.ExpandWorldBorder
+import xyz.memothelemo.edenmc.services.SleepReminder
+import xyz.memothelemo.edenmc.utility.injectApiImpl
+import xyz.memothelemo.edenmc.utility.setMinLevel
 import net.fabricmc.api.DedicatedServerModInitializer
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback
 import net.fabricmc.loader.api.FabricLoader

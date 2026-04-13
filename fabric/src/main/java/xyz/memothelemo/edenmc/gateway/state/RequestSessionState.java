@@ -1,4 +1,4 @@
-package com.github.dystopiko.edenmc.gateway.state;
+package xyz.memothelemo.edenmc.gateway.state;
 
 public enum RequestSessionState {
     INITIAL,

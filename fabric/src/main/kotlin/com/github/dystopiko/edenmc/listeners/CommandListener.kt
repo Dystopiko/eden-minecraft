@@ -1,11 +1,11 @@
-package com.github.dystopiko.edenmc.listeners;
+package xyz.memothelemo.edenmc.listeners;
 
-import com.github.dystopiko.edenmc.EdenMod
-import com.github.dystopiko.edenmc.EdenMod.logger
-import com.github.dystopiko.edenmc.callbacks.CommandExecutionCallback
-import com.github.dystopiko.edenmc.exceptions.GatewayException
-import com.github.dystopiko.edenmc.gateway.alerts.CommandExecutor
-import com.github.dystopiko.edenmc.utility.CommandContext
+import xyz.memothelemo.edenmc.EdenMod
+import xyz.memothelemo.edenmc.EdenMod.logger
+import xyz.memothelemo.edenmc.callbacks.CommandExecutionCallback
+import xyz.memothelemo.edenmc.exceptions.GatewayException
+import xyz.memothelemo.edenmc.gateway.alerts.CommandExecutor
+import xyz.memothelemo.edenmc.utility.CommandContext
 import net.minecraft.server.permissions.Permissions
 
 fun registerCommandListeners() {

@@ -1,7 +1,7 @@
-package com.github.dystopiko.edenmc.exceptions
+package xyz.memothelemo.edenmc.exceptions
 
-import com.github.dystopiko.edenmc.gateway.GatewayError
-import com.github.dystopiko.edenmc.gateway.GatewayErrorCode
+import xyz.memothelemo.edenmc.gateway.GatewayError
+import xyz.memothelemo.edenmc.gateway.GatewayErrorCode
 
 class GatewayException : Exception {
     val code: GatewayErrorCode

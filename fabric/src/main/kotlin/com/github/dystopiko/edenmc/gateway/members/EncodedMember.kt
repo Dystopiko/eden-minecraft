@@ -1,4 +1,4 @@
-package com.github.dystopiko.edenmc.gateway.members
+package xyz.memothelemo.edenmc.gateway.members
 
 import kotlinx.serialization.Serializable
 

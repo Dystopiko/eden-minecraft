@@ -1,4 +1,4 @@
-package com.github.dystopiko.edenmc.interfaces;
+package xyz.memothelemo.edenmc.interfaces;
 
 import net.minecraft.server.MinecraftServer;
 import org.jetbrains.annotations.NotNull;

@@ -1,6 +1,6 @@
-package com.github.dystopiko.edenmc.gateway.admin
+package xyz.memothelemo.edenmc.gateway.admin
 
-import com.github.dystopiko.edenmc.gateway.members.EncodedMember
+import xyz.memothelemo.edenmc.gateway.members.EncodedMember
 import kotlinx.serialization.Serializable
 
 @Serializable

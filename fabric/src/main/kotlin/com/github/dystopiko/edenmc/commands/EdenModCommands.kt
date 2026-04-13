@@ -1,7 +1,7 @@
-package com.github.dystopiko.edenmc.commands
+package xyz.memothelemo.edenmc.commands
 
-import com.github.dystopiko.edenmc.commands.subcommands.AdminCommand
-import com.github.dystopiko.edenmc.commands.subcommands.LinkCommand
+import xyz.memothelemo.edenmc.commands.subcommands.AdminCommand
+import xyz.memothelemo.edenmc.commands.subcommands.LinkCommand
 import com.mojang.brigadier.CommandDispatcher
 import net.minecraft.commands.CommandSourceStack
 import net.minecraft.commands.Commands

@@ -1,11 +1,11 @@
-package com.github.dystopiko.edenmc.listeners
+package xyz.memothelemo.edenmc.listeners
 
-import com.github.dystopiko.edenmc.EdenMod
-import com.github.dystopiko.edenmc.sessions.GuestSession
-import com.github.dystopiko.edenmc.sessions.MemberSession
-import com.github.dystopiko.edenmc.sessions.SessionManager
-import com.github.dystopiko.edenmc.sessions.getSession
-import com.github.dystopiko.edenmc.utility.appendSpace
+import xyz.memothelemo.edenmc.EdenMod
+import xyz.memothelemo.edenmc.sessions.GuestSession
+import xyz.memothelemo.edenmc.sessions.MemberSession
+import xyz.memothelemo.edenmc.sessions.SessionManager
+import xyz.memothelemo.edenmc.sessions.getSession
+import xyz.memothelemo.edenmc.utility.appendSpace
 import net.fabricmc.fabric.api.entity.event.v1.ServerPlayerEvents
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.event.ClickEvent

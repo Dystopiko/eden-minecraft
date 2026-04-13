@@ -1,7 +1,7 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "com.github.dystopiko.edenmc.mixin",
+  "package": "xyz.memothelemo.edenmc.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "CommandsMixin",

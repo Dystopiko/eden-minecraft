@@ -15,7 +15,7 @@
   "environment": "server",
   "entrypoints": {
     "server": [
-      "com.github.dystopiko.edenmc.EdenMod::INSTANCE"
+      "xyz.memothelemo.edenmc.EdenMod::INSTANCE"
     ]
   },
   "mixins": [

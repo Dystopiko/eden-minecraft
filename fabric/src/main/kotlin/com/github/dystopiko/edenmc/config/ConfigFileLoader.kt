@@ -1,4 +1,4 @@
-package com.github.dystopiko.edenmc.config
+package xyz.memothelemo.edenmc.config
 
 import com.akuleshov7.ktoml.Toml
 import com.akuleshov7.ktoml.TomlIndentation
@@ -9,9 +9,9 @@ import com.akuleshov7.ktoml.file.TomlFileReader
 import com.akuleshov7.ktoml.source.TomlSourceReader
 import com.akuleshov7.ktoml.source.decodeFromStream
 import com.akuleshov7.ktoml.source.partiallyDecodeFromStream
-import com.github.dystopiko.edenmc.EdenMod.ID
-import com.github.dystopiko.edenmc.EdenMod.logger
-import com.github.dystopiko.edenmc.exceptions.InternalException
+import xyz.memothelemo.edenmc.EdenMod.ID
+import xyz.memothelemo.edenmc.EdenMod.logger
+import xyz.memothelemo.edenmc.exceptions.InternalException
 import kotlinx.serialization.serializer
 import net.fabricmc.loader.api.FabricLoader
 import java.io.IOException

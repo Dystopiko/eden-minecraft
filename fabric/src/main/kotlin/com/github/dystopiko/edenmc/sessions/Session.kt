@@ -1,7 +1,7 @@
-package com.github.dystopiko.edenmc.sessions
+package xyz.memothelemo.edenmc.sessions
 
-import com.github.dystopiko.edenmc.exceptions.InternalException
-import com.github.dystopiko.edenmc.gateway.members.EncodedMember
+import xyz.memothelemo.edenmc.exceptions.InternalException
+import xyz.memothelemo.edenmc.gateway.members.EncodedMember
 import net.minecraft.world.level.GameType
 import java.time.OffsetDateTime
 import java.util.UUID

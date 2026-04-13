@@ -1,4 +1,4 @@
-package com.github.dystopiko.edenmc.gateway
+package xyz.memothelemo.edenmc.gateway
 
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.SerializationException

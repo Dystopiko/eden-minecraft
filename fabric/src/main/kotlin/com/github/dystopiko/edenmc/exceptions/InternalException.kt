@@ -1,6 +1,6 @@
-package com.github.dystopiko.edenmc.exceptions
+package xyz.memothelemo.edenmc.exceptions
 
-import com.github.dystopiko.edenmc.EdenMod.ID
+import xyz.memothelemo.edenmc.EdenMod.ID
 import net.fabricmc.loader.api.FabricLoader
 
 @Suppress("unused")

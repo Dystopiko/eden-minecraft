@@ -1,14 +1,14 @@
-package com.github.dystopiko.edenmc.commands.subcommands.admin
+package xyz.memothelemo.edenmc.commands.subcommands.admin
 
-import com.github.dystopiko.edenmc.EdenMod
-import com.github.dystopiko.edenmc.EdenMod.logger
-import com.github.dystopiko.edenmc.commands.BuildableCommand
-import com.github.dystopiko.edenmc.commands.gateway
-import com.github.dystopiko.edenmc.exceptions.GatewayException
-import com.github.dystopiko.edenmc.gateway.admin.PatchSettings
-import com.github.dystopiko.edenmc.utility.CommandContext
-import com.github.dystopiko.edenmc.utility.LiteralCommandNode
-import com.github.dystopiko.edenmc.utility.appendSpace
+import xyz.memothelemo.edenmc.EdenMod
+import xyz.memothelemo.edenmc.EdenMod.logger
+import xyz.memothelemo.edenmc.commands.BuildableCommand
+import xyz.memothelemo.edenmc.commands.gateway
+import xyz.memothelemo.edenmc.exceptions.GatewayException
+import xyz.memothelemo.edenmc.gateway.admin.PatchSettings
+import xyz.memothelemo.edenmc.utility.CommandContext
+import xyz.memothelemo.edenmc.utility.LiteralCommandNode
+import xyz.memothelemo.edenmc.utility.appendSpace
 import com.mojang.brigadier.arguments.BoolArgumentType
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.NamedTextColor

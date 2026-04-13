@@ -1,7 +1,7 @@
-package com.github.dystopiko.edenmc.utility
+package xyz.memothelemo.edenmc.utility
 
-import com.github.dystopiko.edenmc.interfaces.ServerPlayerAccessor
-import com.github.dystopiko.edenmc.sessions.getMemberRank
+import xyz.memothelemo.edenmc.interfaces.ServerPlayerAccessor
+import xyz.memothelemo.edenmc.sessions.getMemberRank
 import com.mojang.authlib.GameProfile
 import net.kyori.adventure.platform.modcommon.MinecraftServerAudiences
 import net.kyori.adventure.text.Component

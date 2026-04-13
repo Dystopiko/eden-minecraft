@@ -1,8 +1,8 @@
-package com.github.dystopiko.edenmc.gateway.sessions
+package xyz.memothelemo.edenmc.gateway.sessions
 
-import com.github.dystopiko.edenmc.gateway.McUUIDSerializer
-import com.github.dystopiko.edenmc.gateway.Rfc3339Serializer
-import com.github.dystopiko.edenmc.gateway.members.EncodedMember
+import xyz.memothelemo.edenmc.gateway.McUUIDSerializer
+import xyz.memothelemo.edenmc.gateway.Rfc3339Serializer
+import xyz.memothelemo.edenmc.gateway.members.EncodedMember
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import java.time.OffsetDateTime

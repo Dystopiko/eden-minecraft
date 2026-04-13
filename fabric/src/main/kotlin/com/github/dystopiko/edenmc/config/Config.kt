@@ -1,4 +1,4 @@
-package com.github.dystopiko.edenmc.config
+package xyz.memothelemo.edenmc.config
 
 import com.cronutils.model.Cron
 import com.cronutils.model.CronType

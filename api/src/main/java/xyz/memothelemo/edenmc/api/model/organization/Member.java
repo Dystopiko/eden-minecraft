@@ -1,6 +1,6 @@
-package com.github.dystopiko.edenmc.api.model.organization;
+package xyz.memothelemo.edenmc.api.model.organization;
 
-import com.github.dystopiko.edenmc.api.model.User;
+import xyz.memothelemo.edenmc.api.model.User;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 

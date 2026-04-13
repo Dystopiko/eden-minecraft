@@ -1,6 +1,6 @@
-package com.github.dystopiko.edenmc.mixin;
+package xyz.memothelemo.edenmc.mixin;
 
-import com.github.dystopiko.edenmc.interfaces.ServerPlayerAccessor;
+import xyz.memothelemo.edenmc.interfaces.ServerPlayerAccessor;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import static com.github.dystopiko.edenmc.utility.ChatRankPrefixKt.displayNameForChat;
+import static xyz.memothelemo.edenmc.utility.ChatRankPrefixKt.displayNameForChat;
 
 @Mixin(ServerPlayer.class)
 public class ServerPlayerMixin implements ServerPlayerAccessor {

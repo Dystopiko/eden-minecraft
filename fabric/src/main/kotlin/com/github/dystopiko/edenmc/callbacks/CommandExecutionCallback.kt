@@ -1,6 +1,6 @@
-package com.github.dystopiko.edenmc.callbacks
+package xyz.memothelemo.edenmc.callbacks
 
-import com.github.dystopiko.edenmc.utility.CommandContext
+import xyz.memothelemo.edenmc.utility.CommandContext
 import net.fabricmc.fabric.api.event.Event
 import net.fabricmc.fabric.api.event.EventFactory
 

@@ -1,7 +1,7 @@
-package com.github.dystopiko.edenmc.gateway.alerts
+package xyz.memothelemo.edenmc.gateway.alerts
 
-import com.github.dystopiko.edenmc.gateway.McBlockPosSerializer
-import com.github.dystopiko.edenmc.gateway.McUUIDSerializer
+import xyz.memothelemo.edenmc.gateway.McBlockPosSerializer
+import xyz.memothelemo.edenmc.gateway.McUUIDSerializer
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import net.minecraft.core.BlockPos

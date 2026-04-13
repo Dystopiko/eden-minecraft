@@ -1,7 +1,7 @@
-package com.github.dystopiko.edenmc.api.impl.model;
+package xyz.memothelemo.edenmc.api.impl.model;
 
-import com.github.dystopiko.edenmc.api.model.User;
-import com.github.dystopiko.edenmc.api.model.organization.MemberRank;
+import xyz.memothelemo.edenmc.api.model.User;
+import xyz.memothelemo.edenmc.api.model.organization.MemberRank;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.geysermc.floodgate.api.FloodgateApi;
 

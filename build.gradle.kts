@@ -2,7 +2,6 @@ plugins {
     alias(libs.plugins.kotlin) apply false
     alias(libs.plugins.kotlin.serialization) apply false
     alias(libs.plugins.loom) apply false
-    id("maven-publish")
 }
 
 val mavenGroup = project.property("maven_group").toString()

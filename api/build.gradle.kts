@@ -18,7 +18,7 @@ dependencies {
 publishing {
     publications {
         create<MavenPublication>("mavenJava") {
-            from(components["release"])
+            from(components["java"])
 
             groupId = "xyz.memothelemo.edenmc.api"
             artifactId = "edenmc-api"

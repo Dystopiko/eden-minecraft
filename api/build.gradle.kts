@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.kotlin)
     alias(libs.plugins.loom)
+    id("maven-publish")
 }
 
 group = project.property("maven_group").toString()

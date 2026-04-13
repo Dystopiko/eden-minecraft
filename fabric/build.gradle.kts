@@ -67,6 +67,10 @@ dependencies {
     includeAndImplementation(libs.cronutils)
 }
 
+tasks.jar {
+    from("LICENSE")
+}
+
 tasks.processResources {
     inputs.property("id", modId)
     inputs.property("name", modName)

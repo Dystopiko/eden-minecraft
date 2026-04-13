@@ -1,5 +1,4 @@
 plugins {
-    alias(libs.plugins.kotlin)
     alias(libs.plugins.loom)
     id("maven-publish")
 }
@@ -18,11 +17,11 @@ dependencies {
 publishing {
     publications {
         create<MavenPublication>("mavenJava") {
-            from(components["java"])
-
             groupId = "xyz.memothelemo.edenmc.api"
             artifactId = "edenmc-api"
             version = project.property("mod_api_version").toString()
+
+            from(components["java"])
 
             pom {
                 name = "EdenMC"

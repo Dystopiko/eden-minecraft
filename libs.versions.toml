@@ -31,7 +31,7 @@ adventure-fabric = "6.8.0"
 cronutils = "9.2.1"
 
 [libraries]
-minecraft = { module = "net.minecraft:minecraft", version.ref = "minecraft" }
+minecraft = { module = "com.mojang:minecraft", version.ref = "minecraft" }
 
 fabric-api = { module = "net.fabricmc.fabric-api:fabric-api", version.ref = "fabric-api" }
 fabric-loader = { module = "net.fabricmc:fabric-loader", version.ref = "fabric-loader" }

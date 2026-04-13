@@ -24,6 +24,7 @@ val includeImplementation: Configuration by configurations.creating {
     configurations.implementation.configure { extendsFrom(this@creating) }
 }
 
+// Due to limitations of Kotlin DSL, repeating code is the only choice
 dependencies {
     // To change the versions, see at `libs.versions.toml` file
     // Fabric
@@ -67,6 +68,15 @@ dependencies {
     includeAndImplementation(libs.cronutils)
 }
 
+java {
+    withSourcesJar()
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+// End of repeating code
+
 tasks.jar {
     from("LICENSE")
 }
@@ -90,14 +100,9 @@ tasks.processResources {
     }
 }
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_25
-    targetCompatibility = JavaVersion.VERSION_25
-    withSourcesJar()
-}
 
 kotlin {
     compilerOptions {
-        jvmTarget.set(JvmTarget.JVM_25)
+        jvmTarget.set(JvmTarget.JVM_21)
     }
 }

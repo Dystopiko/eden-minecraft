@@ -36,6 +36,9 @@ dependencies {
     modImplementation(libs.fabric.kotlin)
     includeImplementation(libs.kotlinx.datetime)
 
+    // EdenMC API
+    api(project(":api"))
+
     // Floodgate
     modImplementation(libs.floodgate.api)
 

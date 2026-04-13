@@ -4,7 +4,8 @@ import org.jetbrains.annotations.NotNull;
 
 import static org.jetbrains.annotations.ApiStatus.Internal;
 
-public abstract class EdenProvider {
+@SuppressWarnings("unused")
+public final class EdenProvider {
     private static Eden instance = null;
 
     public static @NotNull Eden get() {
@@ -19,4 +20,6 @@ public abstract class EdenProvider {
     static void register(Eden instance) {
         EdenProvider.instance = instance;
     }
+
+    private EdenProvider() {}
 }

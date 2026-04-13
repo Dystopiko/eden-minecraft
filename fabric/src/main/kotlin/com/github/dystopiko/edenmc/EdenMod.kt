@@ -1,5 +1,6 @@
 package com.github.dystopiko.edenmc
 
+import com.github.dystopiko.edenmc.api.impl.EdenImpl
 import com.github.dystopiko.edenmc.config.ConfigFileLoader
 import com.github.dystopiko.edenmc.commands.registerCommands
 import com.github.dystopiko.edenmc.gateway.GatewayClient
@@ -7,6 +8,7 @@ import com.github.dystopiko.edenmc.listeners.registerCommandListeners
 import com.github.dystopiko.edenmc.listeners.registerPlayerListeners
 import com.github.dystopiko.edenmc.services.ExpandWorldBorder
 import com.github.dystopiko.edenmc.services.SleepReminder
+import com.github.dystopiko.edenmc.utility.injectApiImpl
 import com.github.dystopiko.edenmc.utility.setMinLevel
 import net.fabricmc.api.DedicatedServerModInitializer
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback
@@ -43,6 +45,8 @@ object EdenMod : DedicatedServerModInitializer {
     val logger: Logger = LogManager.getLogger("EdenMC")
 
     override fun onInitializeServer() {
+        injectApiImpl(EdenImpl())
+
         if (debugMode) {
             logger.setMinLevel(Level.DEBUG)
             logger.warn("Debug mode is enabled")
@@ -62,5 +66,7 @@ object EdenMod : DedicatedServerModInitializer {
         CommandRegistrationCallback.EVENT.register { dispatcher, _, _ -> registerCommands(dispatcher) }
         ExpandWorldBorder(config).start()
         SleepReminder(config).start()
+
+        logger.info("EdenMC has initialized successfully")
     }
 }

@@ -16,6 +16,10 @@ subprojects {
         options.release = 25
     }
 
+    dependencies {
+
+    }
+
     repositories {
         mavenCentral()
         mavenLocal()

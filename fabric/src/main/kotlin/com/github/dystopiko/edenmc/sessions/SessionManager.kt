@@ -22,6 +22,7 @@ object SessionManager {
         this.sessions.remove(id)
     }
 
+    fun getSessionNullable(id: UUID): Session? = this.sessions[id]
     fun getSession(id: UUID): Session = this.sessions[id]
         ?: throw InternalException("Every player must be given a session by gateway")
 }

@@ -6,7 +6,7 @@ import xyz.memothelemo.edenmc.api.EdenProvider
 import java.lang.reflect.Method
 
 fun injectApiImpl(impl: Eden) {
-    var method: Method? = null
+    var method: Method?
     try {
         method = EdenProvider::class.java.getDeclaredMethod("register", Eden::class.java)
         method.isAccessible = true
@@ -15,10 +15,9 @@ fun injectApiImpl(impl: Eden) {
     }
 
     try {
-        method.invoke(impl)
+        method.invoke(null, impl)
         EdenMod.logger.debug("Successfully injected EvenProvider with EdenImpl")
     } catch (ex: Exception) {
         EdenMod.logger.warn("Could not inject EdenProvider with the implementation class", ex)
     }
-
 }

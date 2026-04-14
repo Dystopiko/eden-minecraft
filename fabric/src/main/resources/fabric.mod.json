@@ -28,6 +28,6 @@
     "floodgate": ">=2.2.0",
     "java": ">=21",
     "luckperms": ">=5.5.0",
-    "minecraft": "${min_minecraft_version}"
+    "minecraft": "${target_mc_version}"
   }
 }

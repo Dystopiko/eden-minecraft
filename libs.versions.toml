@@ -58,3 +58,4 @@ cronutils = { module = "com.cronutils:cron-utils", version.ref = "cronutils" }
 kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 loom = { id = "fabric-loom", version = "1.15-SNAPSHOT" }
+jreleaser = { id = "org.jreleaser", version = "1.23.0" }

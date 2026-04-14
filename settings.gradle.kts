@@ -16,7 +16,6 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "EdenMC"
-include (
-    "api",
-    "fabric"
-)
+
+include("api")
+include("fabric")

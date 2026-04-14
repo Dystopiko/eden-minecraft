@@ -1,10 +1,7 @@
 package xyz.memothelemo.edenmc.api;
 
-import xyz.memothelemo.edenmc.api.model.User;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.entity.player.Player;
-import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
+import xyz.memothelemo.edenmc.api.model.User;
 
 import java.util.UUID;
 
@@ -24,27 +21,6 @@ import java.util.UUID;
  */
 @SuppressWarnings("unused")
 public interface Eden {
-    /**
-     * Returns a current session from a specified player.
-     *
-     * @param player Minecraft player handle
-     * @return player's current session. it never returns null
-     */
-    @NonNull
-    User getUser(Player player);
-
-    /**
-     * Returns a current session from a specified server player.
-     *
-     * <p>It is equivalent to {@link #getUser(Player)} but it accepts {@link ServerPlayer}
-     * and it can be called directly as an argument.
-     *
-     * @param player Minecraft server player handle
-     * @return player's current session. it never returns null
-     */
-    @NonNull
-    User getUser(ServerPlayer player);
-
     /**
      * Returns the session for a player by UUID.
      *

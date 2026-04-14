@@ -7,16 +7,9 @@ import org.geysermc.floodgate.api.FloodgateApi;
 
 import java.util.UUID;
 
-public final class GuestImpl implements User {
-    private final boolean isBedrock;
-
-    public GuestImpl(@NonNull UUID uuid) {
-        this.isBedrock = FloodgateApi.getInstance().isFloodgatePlayer(uuid);
-    }
-
-    @Override
-    public boolean isBedrock() {
-        return this.isBedrock;
+public record GuestImpl(boolean isBedrock) implements User {
+    public GuestImpl(@NonNull UUID isBedrock) {
+        this(FloodgateApi.getInstance().isFloodgatePlayer(isBedrock));
     }
 
     @Override

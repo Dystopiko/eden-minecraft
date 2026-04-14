@@ -16,7 +16,9 @@ fun injectApiImpl(impl: Eden) {
 
     try {
         method.invoke(impl)
+        EdenMod.logger.debug("Successfully injected EvenProvider with EdenImpl")
     } catch (ex: Exception) {
         EdenMod.logger.warn("Could not inject EdenProvider with the implementation class", ex)
     }
+
 }

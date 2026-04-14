@@ -1,3 +1,4 @@
+import net.fabricmc.loom.task.DownloadTask
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
@@ -9,11 +10,7 @@ plugins {
 val modId = project.property("mod_id").toString()
 val modName = project.property("mod_name").toString()
 val modVersion = project.property("mod_version").toString()
-val minimumMcVersion = project.property("min_minecraft_version").toString()
-
 base.archivesName.set(modId)
-version = modVersion
-group = project.property("maven_group").toString()
 
 fun DependencyHandlerScope.includeAndImplementation(dep: Any) {
     modImplementation(dep)
@@ -24,7 +21,6 @@ val includeImplementation: Configuration by configurations.creating {
     configurations.implementation.configure { extendsFrom(this@creating) }
 }
 
-// Due to limitations of Kotlin DSL, repeating code is the only choice
 dependencies {
     // To change the versions, see at `libs.versions.toml` file
     // Fabric
@@ -75,10 +71,35 @@ java {
     }
 }
 
-// End of repeating code
+kotlin {
+    compilerOptions {
+        jvmTarget.set(JvmTarget.JVM_21)
+    }
+}
 
-tasks.jar {
-    from("LICENSE")
+tasks.register<DownloadTask>("downloadFloodgate") {
+    url = "https://cdn.modrinth.com/data/bWrNNfkb/versions/81EuNxeZ/Floodgate-Fabric-2.2.6-b60.jar"
+    output = file("run/mods/Floodgate.jar")
+}
+
+tasks.register<DownloadTask>("downloadGeyser") {
+    url = "https://cdn.modrinth.com/data/wKkoqHrH/versions/4Ij9rDq0/geyser-fabric-Geyser-Fabric-2.9.5-b1113.jar"
+    output = file("run/mods/Geyser.jar")
+}
+
+tasks.register<DownloadTask>("downloadLuckPerms") {
+    url = "https://cdn.modrinth.com/data/Vebnzrzj/versions/CzCJJMuo/LuckPerms-Fabric-5.5.21.jar"
+    output = file("run/mods/LuckPerms.jar")
+}
+
+tasks.register("downloadModDependencies") {
+    dependsOn("downloadFloodgate")
+    dependsOn("downloadGeyser")
+    dependsOn("downloadLuckPerms")
+}
+
+tasks.named("runServer").configure {
+    dependsOn("downloadModDependencies")
 }
 
 tasks.processResources {
@@ -92,7 +113,7 @@ tasks.processResources {
             "mod_id" to modId,
             "mod_name" to modName,
             "mod_version" to modVersion,
-            "min_minecraft_version" to minimumMcVersion,
+            "target_mc_version" to "1.21.11",
 
             "fabric_loader_version" to libs.versions.fabric.loader.get(),
             "fabric_kotlin_version" to libs.versions.fabric.kotlin.get(),
@@ -100,9 +121,3 @@ tasks.processResources {
     }
 }
 
-
-kotlin {
-    compilerOptions {
-        jvmTarget.set(JvmTarget.JVM_21)
-    }
-}

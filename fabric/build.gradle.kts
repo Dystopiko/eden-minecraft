@@ -35,6 +35,7 @@ dependencies {
 
     // EdenMC API
     api(project(":api"))
+    include(project(":api"))
 
     // Floodgate
     modImplementation(libs.floodgate.api)

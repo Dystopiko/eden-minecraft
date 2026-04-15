@@ -56,6 +56,7 @@ dependencies {
 
     // okhttp
     includeAndImplementation(libs.okhttp)
+    includeAndImplementation(libs.okhttp.tls)
 
     // Adventure
     includeAndImplementation(libs.adventure.api)

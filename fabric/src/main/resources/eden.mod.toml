@@ -2,6 +2,8 @@ timezone = "UTC"
 
 #[gateway]
 #base_url = ""
+#certificate_file = "cert.pem"
+#insecure = false
 #token = ""
 
 [reminders]

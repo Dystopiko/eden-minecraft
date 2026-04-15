@@ -28,6 +28,12 @@ data class GatewayConfig(
     @SerialName("base_url")
     val baseUrl: String,
 
+    @SerialName("certificate_file")
+    val certificateFile: String? = null,
+
+    @SerialName("insecure")
+    val insecure: Boolean = false,
+
     @SerialName("token")
     val token: String,
 ) {
@@ -36,8 +42,14 @@ data class GatewayConfig(
             "[gateway.base_url] must not be blank. Please set it to " +
                 "your hosted Eden's Gateway API's URL."
         }
-        require(baseUrl.startsWith("http://") || baseUrl.startsWith("https://")) {
-            "[gateway.base_url] must start with `http://` or `https://`."
+        require(baseUrl.startsWith("https://")) {
+            "[gateway.base_url] must start with `https://`."
+        }
+        if (certificateFile != null) {
+            require(certificateFile.isNotBlank()) {
+                "[gateway.certificate_file] must not be blank. Please set to where the " +
+                    "certificate PEM file is, to be able to connect to your hosted Eden's Gateway API."
+            }
         }
         require(token.isNotBlank()) {
             "[gateway.token] must not be blank. Set it to your gateway's shared " +

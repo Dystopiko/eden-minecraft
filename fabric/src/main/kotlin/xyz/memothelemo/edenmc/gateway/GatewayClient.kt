@@ -23,21 +23,57 @@ import okhttp3.RequestBody.Companion.toRequestBody
 import okhttp3.Response
 import okhttp3.ResponseBody
 import okhttp3.Route
+import okhttp3.internal.tls.OkHostnameVerifier
+import okhttp3.tls.HandshakeCertificates;
+import java.io.FileInputStream
 import java.io.IOException
+import java.net.URI
+import java.security.cert.CertificateFactory
+import java.security.cert.X509Certificate
 import java.time.Duration
 import java.util.UUID
 import kotlin.jvm.Throws
+import xyz.memothelemo.edenmc.EdenMod.logger
 
 /**
  * HTTP client for the Eden Gateway API.
  */
 class GatewayClient(config: GatewayConfig) {
     private val baseUrl = config.baseUrl.trimEnd('/')
-    private val http: OkHttpClient = OkHttpClient.Builder()
-        .connectTimeout(Duration.ofSeconds(30))
-        .followRedirects(true)
-        .authenticator(TokenAuthenticator(config.token))
-        .build()
+    private val http: OkHttpClient
+
+    init {
+        var handshakeCertsBuilder = HandshakeCertificates.Builder()
+            .addPlatformTrustedCertificates()
+
+        val gatewayHostname = URI.create(config.baseUrl).host
+        if (config.certificateFile != null && config.insecure) {
+            val cert = loadCertificateFromPEM(config.certificateFile)
+            handshakeCertsBuilder = handshakeCertsBuilder.addTrustedCertificate(cert)
+        }
+
+        if (config.insecure) {
+            handshakeCertsBuilder = handshakeCertsBuilder.addInsecureHost(gatewayHostname)
+        }
+
+        val handshakeCerts = handshakeCertsBuilder.build()
+        var httpBuilder = OkHttpClient.Builder()
+            .connectTimeout(Duration.ofSeconds(30))
+            .followRedirects(true)
+            .authenticator(TokenAuthenticator(config.token))
+            .sslSocketFactory(handshakeCerts.sslSocketFactory(), handshakeCerts.trustManager)
+
+        if (config.insecure) {
+            logger.warn("EdenMC is configured to connect to the Gateway API in an insecure connection")
+            logger.warn("Man-in-the-middle attacks are possible. Proceed this at your own risk!")
+            httpBuilder = httpBuilder.hostnameVerifier { host, session ->
+                if (host == gatewayHostname) return@hostnameVerifier true
+                OkHostnameVerifier.verify(host, session)
+            }
+        }
+
+        http = httpBuilder.build()
+    }
 
     /**
      * Changes guild settings with the following parameters provided in `PatchSettings`
@@ -188,3 +224,10 @@ private val json = Json { ignoreUnknownKeys = true }
 
 private inline fun <reified T> Request.Builder.json(body: T): Request.Builder =
     this.post(json.encodeToString(body).toRequestBody(JSON_MEDIA_TYPE))
+
+
+private fun loadCertificateFromPEM(path: String): X509Certificate {
+    val factory = CertificateFactory.getInstance("X.509")
+    val stream = FileInputStream(path)
+    return factory.generateCertificate(stream) as X509Certificate
+}

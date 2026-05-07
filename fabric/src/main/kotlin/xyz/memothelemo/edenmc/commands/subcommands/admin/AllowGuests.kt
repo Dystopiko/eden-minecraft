@@ -13,6 +13,7 @@ import com.mojang.brigadier.arguments.BoolArgumentType
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.NamedTextColor
 import net.minecraft.commands.Commands
+import xyz.memothelemo.edenmc.api.Eden
 
 object AllowGuests: BuildableCommand {
     override fun build(): LiteralCommandNode {

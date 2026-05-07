@@ -14,7 +14,8 @@ fun registerCommandListeners() {
 
 private val blacklistedCommands = setOf(
     // `/w` and `/tell` redirect to `/msg`
-    "msg", "teammsg", "help", "list", "random", "me",
+    "msg", "teammsg", "help", "list",
+    "random", "me", "login", "l",
 )
 
 fun logCommands(ctx: CommandContext) {

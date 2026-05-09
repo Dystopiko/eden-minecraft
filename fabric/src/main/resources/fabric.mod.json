@@ -26,7 +26,7 @@
     "fabric-api": "*",
     "fabric-language-kotlin": ">=${fabric_kotlin_version}",
     "floodgate": ">=2.2.0",
-    "java": ">=21",
+    "java": ">=25",
     "luckperms": ">=5.5.0",
     "minecraft": "${target_mc_version}"
   }

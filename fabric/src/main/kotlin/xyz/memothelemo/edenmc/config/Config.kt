@@ -12,6 +12,7 @@ import kotlinx.serialization.Serializable
 data class EdenModConfig(
     val gateway: GatewayConfig?,
     val reminders: RemindersConfig = RemindersConfig(),
+    @Serializable(with = TimeZoneSerializer::class)
     val timezone: TimeZone = TimeZone.UTC
 )
 

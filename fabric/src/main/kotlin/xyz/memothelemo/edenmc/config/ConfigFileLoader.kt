@@ -5,10 +5,8 @@ import com.akuleshov7.ktoml.TomlIndentation
 import com.akuleshov7.ktoml.TomlInputConfig
 import com.akuleshov7.ktoml.TomlOutputConfig
 import com.akuleshov7.ktoml.exceptions.TomlDecodingException
-import com.akuleshov7.ktoml.file.TomlFileReader
 import com.akuleshov7.ktoml.source.TomlSourceReader
 import com.akuleshov7.ktoml.source.decodeFromStream
-import com.akuleshov7.ktoml.source.partiallyDecodeFromStream
 import xyz.memothelemo.edenmc.EdenMod.ID
 import xyz.memothelemo.edenmc.EdenMod.logger
 import xyz.memothelemo.edenmc.exceptions.InternalException

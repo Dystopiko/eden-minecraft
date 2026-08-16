@@ -17,8 +17,8 @@ fun DependencyHandlerScope.includeAndImplementation(dep: Any) {
     implementation(dep)
 }
 
-val includeImplementation: Configuration by configurations.creating {
-    configurations.implementation.configure { extendsFrom(this@creating) }
+val includeImplementation: Configuration = configurations.create("includeImplementation") {
+    configurations.implementation.configure { extendsFrom(this@create) }
 }
 
 dependencies {
@@ -79,17 +79,17 @@ kotlin {
 }
 
 tasks.register<DownloadTask>("downloadFloodgate") {
-    url = "https://cdn.modrinth.com/data/bWrNNfkb/versions/fD4J9lnX/Floodgate-Fabric-2.2.6-b63.jar?mr_download_reason=standalone&mr_game_version=26.1.2&mr_loader=fabric"
+    url = "https://cdn.modrinth.com/data/bWrNNfkb/versions/urOFTrVX/Floodgate-Fabric-2.2.6-b67.jar"
     output = file("run/mods/Floodgate.jar")
 }
 
 tasks.register<DownloadTask>("downloadGeyser") {
-    url = "https://cdn.modrinth.com/data/wKkoqHrH/versions/q4Pg0AcC/Geyser-Fabric-2.10.0-b1138.jar?mr_download_reason=standalone&mr_game_version=26.1.2&mr_loader=fabric"
+    url = "https://cdn.modrinth.com/data/wKkoqHrH/versions/SansJdt3/Geyser-Fabric-2.11.1-b1223.jar"
     output = file("run/mods/Geyser.jar")
 }
 
 tasks.register<DownloadTask>("downloadLuckPerms") {
-    url = "https://cdn.modrinth.com/data/Vebnzrzj/versions/fTIdfb46/LuckPerms-Fabric-5.5.42.jar?mr_download_reason=standalone&mr_game_version=26.1.2&mr_loader=fabric"
+    url = "https://cdn.modrinth.com/data/Vebnzrzj/versions/UHUghDkV/LuckPerms-Fabric-5.5.57.jar"
     output = file("run/mods/LuckPerms.jar")
 }
 
@@ -114,7 +114,7 @@ tasks.processResources {
             "mod_id" to modId,
             "mod_name" to modName,
             "mod_version" to modVersion,
-            "target_mc_version" to "~26.1.2",
+            "target_mc_version" to libs.versions.minecraft.get(),
 
             "fabric_loader_version" to libs.versions.fabric.loader.get(),
             "fabric_kotlin_version" to libs.versions.fabric.kotlin.get(),

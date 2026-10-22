@@ -79,17 +79,17 @@ kotlin {
 }
 
 tasks.register<DownloadTask>("downloadFloodgate") {
-    url = "https://cdn.modrinth.com/data/bWrNNfkb/versions/urOFTrVX/Floodgate-Fabric-2.2.6-b67.jar"
+    url = "https://cdn.modrinth.com/data/bWrNNfkb/versions/m9eO07Zi/Floodgate-Fabric-2.2.7-b69.jar"
     output = file("run/mods/Floodgate.jar")
 }
 
 tasks.register<DownloadTask>("downloadGeyser") {
-    url = "https://cdn.modrinth.com/data/wKkoqHrH/versions/SansJdt3/Geyser-Fabric-2.11.1-b1223.jar"
+    url = "https://cdn.modrinth.com/data/wKkoqHrH/versions/St5oWC1X/Geyser-Fabric-2.12.0-b1268.jar"
     output = file("run/mods/Geyser.jar")
 }
 
 tasks.register<DownloadTask>("downloadLuckPerms") {
-    url = "https://cdn.modrinth.com/data/Vebnzrzj/versions/UHUghDkV/LuckPerms-Fabric-5.5.57.jar"
+    url = "https://cdn.modrinth.com/data/Vebnzrzj/versions/DzQPkkXY/LuckPerms-Fabric-5.5.85.jar"
     output = file("run/mods/LuckPerms.jar")
 }
 

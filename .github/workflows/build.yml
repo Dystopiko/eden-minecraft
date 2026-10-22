@@ -44,13 +44,18 @@ jobs:
         with:
           java-version: '25'
           distribution: 'microsoft'
-          cache: 'gradle'
+
+      # This step caches the Gradle (dependencies, wrapper, Loom's Minecraft files).
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v6
+        with:
+          cache-read-only: false
 
       - name: Grant execute permission for gradlew
         run: chmod +x ./gradlew
 
       - name: Build with Gradle
-        run: ./gradlew build
+        run: ./gradlew build --build-cache
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v5
